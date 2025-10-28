@@ -10,6 +10,34 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
+-include Drivers/BSP/STM32469I_EVAL/subdir.mk
+-include Drivers/BSP/Components/wm8994/subdir.mk
+-include Drivers/BSP/Components/ts3510/subdir.mk
+-include Drivers/BSP/Components/stmpe811/subdir.mk
+-include Drivers/BSP/Components/stmpe1600/subdir.mk
+-include Drivers/BSP/Components/st7789h2/subdir.mk
+-include Drivers/BSP/Components/st7735/subdir.mk
+-include Drivers/BSP/Components/s5k5cag/subdir.mk
+-include Drivers/BSP/Components/ov5640/subdir.mk
+-include Drivers/BSP/Components/ov2640/subdir.mk
+-include Drivers/BSP/Components/otm8009a/subdir.mk
+-include Drivers/BSP/Components/nt35510/subdir.mk
+-include Drivers/BSP/Components/mfxstm32l152/subdir.mk
+-include Drivers/BSP/Components/lsm303dlhc/subdir.mk
+-include Drivers/BSP/Components/lsm303agr/subdir.mk
+-include Drivers/BSP/Components/ls016b8uy/subdir.mk
+-include Drivers/BSP/Components/lis3dsh/subdir.mk
+-include Drivers/BSP/Components/lis302dl/subdir.mk
+-include Drivers/BSP/Components/lan8742/subdir.mk
+-include Drivers/BSP/Components/l3gd20/subdir.mk
+-include Drivers/BSP/Components/ili9341/subdir.mk
+-include Drivers/BSP/Components/ili9325/subdir.mk
+-include Drivers/BSP/Components/i3g4250d/subdir.mk
+-include Drivers/BSP/Components/ft6x06/subdir.mk
+-include Drivers/BSP/Components/ft3x67/subdir.mk
+-include Drivers/BSP/Components/exc7200/subdir.mk
+-include Drivers/BSP/Components/dp83848/subdir.mk
+-include Drivers/BSP/Components/cs43l22/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
@@ -60,8 +88,8 @@ all: main-build
 main-build: ledbuttons.elf secondary-outputs
 
 # Tool invocations
-ledbuttons.elf ledbuttons.map: $(OBJS) $(USER_OBJS) C:\Users\vierk\STM32CubeIDE\workspace_1.16.1\ledbuttons\STM32F469NIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "ledbuttons.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\vierk\STM32CubeIDE\workspace_1.16.1\ledbuttons\STM32F469NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ledbuttons.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+ledbuttons.elf ledbuttons.map: $(OBJS) $(USER_OBJS) C:\Users\vierk\Documents\GitHub\stm32_led_buttons\ledbuttons\STM32F469NIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ledbuttons.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\vierk\Documents\GitHub\stm32_led_buttons\ledbuttons\STM32F469NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ledbuttons.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

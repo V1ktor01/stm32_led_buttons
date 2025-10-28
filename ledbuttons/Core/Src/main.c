@@ -61,6 +61,8 @@ void SystemClock_Config(void);
   * @brief  The application entry point.
   * @retval int
   */
+//#include "stm32469i_eval.h"
+//#include "stm32469i_eval_lcd.h"
 int main(void)
 {
     HAL_Init();
@@ -90,18 +92,20 @@ int main(void)
         // Check if button pressed (active low)
         if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET)
         {
+        	HAL_Delay(100);
+
             // Simple LED countdown
             HAL_GPIO_WritePin(GPIOK, GPIO_PIN_3, GPIO_PIN_SET);
-            HAL_Delay(1000);
+            HAL_Delay(100);
 
             HAL_GPIO_WritePin(GPIOK, GPIO_PIN_4, GPIO_PIN_SET);
-            HAL_Delay(1000);
+            HAL_Delay(100);
 
             HAL_GPIO_WritePin(GPIOK, GPIO_PIN_5, GPIO_PIN_SET);
-            HAL_Delay(1000);
+            HAL_Delay(100);
 
             HAL_GPIO_WritePin(GPIOK, GPIO_PIN_6, GPIO_PIN_SET);
-            HAL_Delay(1000);
+            HAL_Delay(100);
 
             // Turn off all LEDs after countdown
             HAL_GPIO_WritePin(GPIOK, GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6, GPIO_PIN_RESET);
