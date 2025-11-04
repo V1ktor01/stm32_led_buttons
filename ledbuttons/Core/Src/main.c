@@ -87,10 +87,11 @@ int main(void)
 	GPIO_InitStruct.Pull = GPIO_NOPULL;  // active low button
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+	printf("Run\n");
+	printf("Size of char %u\n", sizeof(char));
+
     while (1)
     {
-    	printf("Run\n");
-    	printf("Size of char %u\n", sizeof(char));
         // Check if button pressed (active low)
         if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET)
         {
