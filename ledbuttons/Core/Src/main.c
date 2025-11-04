@@ -89,6 +89,8 @@ int main(void)
 
     while (1)
     {
+    	printf("Run\n");
+    	printf("Size of char %u\n", sizeof(char));
         // Check if button pressed (active low)
         if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET)
         {
